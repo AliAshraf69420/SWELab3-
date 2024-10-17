@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask 
 from flask_restx import Api, Resource, fields
 
 app = Flask(__name__)
@@ -43,8 +43,6 @@ class ItemList(Resource):
         new_item = api.payload
         items.append(new_item)
         return new_item, 201
-
-# GET, PUT, DELETE item by ID
 @ns.route('/<int:id>')
 @ns.response(404, 'Item not found')
 @ns.param('id', 'The item identifier')
